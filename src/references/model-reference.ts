@@ -1,8 +1,8 @@
-import Reference from './reference';
-import EmptyObject from './empty-object';
-import {Store} from './diamond';
+import Reference from '../reference';
+import EmptyObject from '../empty-object';
 import AttributeReferenceMap from './attribute-reference-map';
-import TypeInformation from './type-information';
+import TypeInformation from '../type-information';
+import StateReference from './state';
 
 export default class ModelReference {
   private canonicalReference: Reference;
@@ -60,35 +60,3 @@ export default class ModelReference {
   }
 }
 
-class StateReference {
-  private canonicalReference: Reference;
-  private localReference: Reference;
-  private typeInformation: TypeInformation;
-
-  constructor(canonicalReference: Reference, localReference: Reference, typeInformation: TypeInformation) {
-    this.canonicalReference = canonicalReference;
-    this.localReference = localReference;
-    this.typeInformation = typeInformation;
-  }
-
-  private hasDirtyAttributes() {
-    let local = this.localReference.immutableValue();
-    let canonical = this.canonicalReference.immutableValue();
-
-    if (!local) {
-      return false;
-    }
-
-    if (!canonical) {
-      return true;
-    }
-
-    return canonical.equals(local); 
-  }
-
-  value() {
-    return {
-      hasDirtyAttributes: this.hasDirtyAttributes()
-    }
-  }
-}

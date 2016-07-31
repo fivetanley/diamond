@@ -1,7 +1,7 @@
 import Model, { StoreModel, model } from './model';
 import TypeInformation from './type-information';
 import Reference from './reference';
-import ModelReference from './model-reference';
+import ModelReference from './references//model-reference';
 import { Map, OrderedSet } from 'immutable';
 import EmptyObject from './empty-object';
 

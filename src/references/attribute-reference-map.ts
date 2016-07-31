@@ -1,6 +1,6 @@
-import Reference from './reference';
-import EmptyObject from './empty-object';
-import Model from './model';
+import Reference from '../reference';
+import EmptyObject from '../empty-object';
+import Model from '../model';
 import AttributeReference from './attribute-reference';
 import ModelReference from './model-reference';
 

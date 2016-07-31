@@ -1,5 +1,5 @@
 import EmptyObject from './empty-object';
-import AttributeReferenceMap from './attribute-reference-map';
+import AttributeReferenceMap from './references/attribute-reference-map';
 
 export default class TypeInformation {
   public type: string;

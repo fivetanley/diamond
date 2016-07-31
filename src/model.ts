@@ -1,7 +1,7 @@
 import Reference from './reference';
 import TypeInformation from './type-information';
 import EmptyObject from './empty-object';
-import ModelReference from './model-reference';
+import ModelReference from './references/model-reference';
 
 export default class Model implements StoreModel {
   private _reference: ModelReference;

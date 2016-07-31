@@ -1,0 +1,34 @@
+{
+  "name": "diamond",
+  "version": "0.1.0",
+  "description": "a data-down, actions up immutable buzzword store",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run compile && mocha dist/test/**/*-test.js",
+    "compile": "rm -rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com.com/fivetanley/diamond"
+  },
+  "keywords": [
+    "diamond",
+    "db",
+    "immutable.js",
+    "immutable"
+  ],
+  "author": "Stanley Stuart",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "typescript": "^2.1.0-dev.20160720",
+    "typings": "^1.3.2"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "immutable-diff": "^0.1.1",
+    "node-uuid": "^1.4.7",
+    "qunit": "^0.9.1"
+  }
+}

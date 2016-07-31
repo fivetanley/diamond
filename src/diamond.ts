@@ -275,10 +275,6 @@ class Cache {
     return this.value();
   }
 
-  public updateRecordWithImmutable(key: string, updates, immutable: Map<string, Map<string, any>>) {
-
-  }
-
   public hasRecord(type: string, id: string | number) {
     return this.records.has(this.recordID(type, id));
   }

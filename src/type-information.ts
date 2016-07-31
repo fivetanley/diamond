@@ -1,5 +1,5 @@
 import EmptyObject from './empty-object';
-import {AttributeReferences} from './model';
+import AttributeReferenceMap from './attribute-reference-map';
 
 export default class TypeInformation {
   public type: string;
@@ -10,14 +10,14 @@ export default class TypeInformation {
     this.container = container;
   }
 
-  attributeReferencesClass() {
+  attributeReferenceMapClass() {
     let {container, type} = this;
     let attributeReferencesKey = `attribute-references:${type}`;
 
     if (!container[attributeReferencesKey]) {
       let modelKey = `model:${type}`;
       let model = this.container[modelKey];
-      let AttributeReferencesClass = AttributeReferences.extend(model);
+      let AttributeReferencesClass = AttributeReferenceMap.extend(model);
       container[attributeReferencesKey] = AttributeReferencesClass; 
     }
 

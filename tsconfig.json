@@ -4,6 +4,7 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": ".",
-    "target": "es5"
+    "target": "es5",
+    "experimentalDecorators": true
   }
 }

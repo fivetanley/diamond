@@ -36,13 +36,11 @@ describe('integration - models', function() {
     let post: Model;
 
     beforeEach(function() {
-      for (let i = 0; i < 100000; i++) {
-        post = store.createRecord('post', {
-          id: 1,
-          title: 'Rails is omakase',
-          published: true
-        });
-      }
+      post = store.createRecord('post', {
+        id: 1,
+        title: 'Rails is omakase',
+        published: true
+      });
     });
 
     it('creates a model', function() {
@@ -84,21 +82,39 @@ describe('integration - models', function() {
 
   describe('updating a model', function() {
     let post: Model;
+    const newTitle = 'Hood.ie newletter';
 
     beforeEach(function() {
+
       post = store.createRecord('post', {
         id: 1,
         title: 'Rails is omakase',
         published: true
       });
+      for (let i = 0; i <= 1; i++) {
+        post.attributes.title = newTitle;        
+      }
     });
 
     it('updates if data changes', function() {
-      const newTitle = 'Hood.ie newletter';
-      for (let i = 0; i < 100000; i++) {
-          post.setAttribute('title', newTitle);
-      }
       assert.equal(post.attributes.title, newTitle);
     });
+
+    it('isDirty is true when updated', function() {
+      assert.equal(post.state.hasDirtyAttributes, true);
+    });
+
+    it('hasDirtyAttributes is reset when attributes match canonical state', function() {
+      store.push({
+        data: {
+          id: '1',
+          type: 'post',
+          attributes: {
+            title: 'Rails is omakase'
+          }
+        }
+      });
+      assert.equal(post.state.hasDirtyAttributes, false);
+    })
   });
 });
